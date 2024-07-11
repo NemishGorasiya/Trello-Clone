@@ -1,8 +1,17 @@
-import React from "react";
+import "./Card.scss";
 
-const Card = ({ item }) => {
-	const { title } = item || {};
-	return <div draggable>{title}</div>;
+const Card = ({ provided, item }) => {
+  const { title, id } = item || {};
+  return (
+    <div
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      className="card"
+    >
+      {title}
+    </div>
+  );
 };
 
 export default Card;
